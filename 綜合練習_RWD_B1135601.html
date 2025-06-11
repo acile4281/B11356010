@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RWD 導覽列練習</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .content-section {
+            display: none;
+            margin-top: 20px;
+        }
+         *{
+            box-sizing:border-box
+        }
+        body{
+            margin:0;
+            font-family: "Segoe UI",sans-serif;
+            background-color: antiquewhite;
+        }
+        header{
+            text-align: center;
+            background-color: black;
+            color: aliceblue;
+            padding: 30px 10px;
+        }
+        .cards-container{
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+        }
+        .card{
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .card img{
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .card.shadow{
+            background-color: aliceblue;
+            box-shadow: 0 5px 12px black;
+        }
+       
+        .card.dark{
+            background-color: black;
+            color: aliceblue;
+        }
+        .card.dark img{
+            border-radius: 10%;
+            margin: 20px auto;
+            width: 150px;
+            object-fit: cover;
+        }
+        @media (min-width: 769px) {
+            .card {
+                width: 30%;
+            }
+        }
+        @media(max-width: 576px) {           
+            .card{
+                width: 90%;
+            }
+        }
+        
+        @media(min-width: 577px) and (max-width: 768px) {
+           .card{
+                width: 90%;
+            }        
+        }
+        @media(min-width: 769px) {
+            .card{
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                屏東美食網
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="切換導覽">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <button class="btn btn-link nav-link " onclick="showSection('section1')">首頁</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-link nav-link" onclick="showSection('section2')">屏東市區美食</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-link nav-link" onclick="showSection('section3')">屏科大附近美食</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-link nav-link" onclick="showSection('section4')">聯絡資訊</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="section1" class="content-section">
+            <div class="row">
+                <div class="col-md-4 text-dark p-3 shadow-sm mb-5 bg-light rounded">
+                    <h5>網站介紹</h5>
+                    <p>本網站提供屏東市與屏科大附近的實用美食資訊，幫助你快速找到好吃的在地小店。</p>
+                </div>
+            <div class="col-md-4 text-dark p-3 shadow-sm mb-5 bg-light rounded">
+                <h5>使用方式</h5>
+                <p>點選上方選單或下方按鈕，即可瀏覽不同區域的美食推薦。</p>
+            </div>
+        </div>
+    </div>
+
+        <div id="section2" class="content-section">
+            <div class="row">
+                <div class="col-md-4 text-dark p-3 shadow-sm p-3 mb-5 bg-light rounded" onclick="showDessert()"> 甜點、下午茶</div>
+                <div class="col-md-4 text-dark p-3 shadow-sm p-3 mb-5 bg-light rounded" onclick="showDessert1()"> 早午晚餐、小吃</div>
+            </div>
+        </div>
+        <div id="section3" class="content-section">
+            <div class="row">
+                <div class="col-md-4 text-dark p-3 shadow-sm p-3 mb-5 bg-light rounded" onclick="showDessert2()"> 甜點、下午茶</div>
+                <div class="col-md-4 text-dark p-3 shadow-sm p-3 mb-5 bg-light rounded" onclick="showDessert3()"> 早午晚餐、小吃</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="section1" class="content-section" style="display: block;">
+        <div class="text-center my-4">
+        <h1>歡迎來到屏東美食網</h1>
+        </div>
+        <div class="d-flex justify-content-center gap-3 mb-4">
+        <button type="button" class="btn btn-outline-dark" onclick="showSection('section2')">屏東市區美食</button>
+        <button type="button" class="btn btn-outline-dark" onclick="showSection('section3')">屏科大附近美食</button>
+        </div>
+
+        <h3 class="text-center">熱門推薦</h3>
+        <div class="cards-container">
+        <a href="https://maps.google.com/?q=900屏東縣屏東市公園路66號" target="_blank" class="card dark" style="text-decoration: none;">
+        <img src="美菊麵包店.png" alt="美菊麵包店">
+        <div class="card-content">
+            <h4 style="text-align: center;">美菊麵包店</h4>
+            <p style="text-align: center;">900屏東縣屏東市公園路66號</p>
+        </div>
+        </a>
+        <a href="https://maps.google.com/?q=900屏東縣屏東市勝利東路83號" target="_blank" class="card dark" style="text-decoration: none;">
+        <img src="千馨養生飲品（勝利東店）.png" alt="千馨養生飲品">
+        <div class="card-content">
+            <h4 style="text-align: center;">千馨養生飲品（勝利東店）</h4>
+            <p style="text-align: center;">900屏東縣屏東市勝利東路83號</p>
+        </div>
+        </a>
+        <a href="https://maps.google.com/?q=900屏東縣屏東市信義路28號" target="_blank" class="card dark" style="text-decoration: none;">
+        <img src="秋林牛乳大王.png" alt="秋林牛乳大王">
+        <div class="card-content">
+            <h4 style="text-align: center;">秋林牛乳大王</h4>
+            <p style="text-align: center;">900屏東縣屏東市信義路28號</p>
+        </div>
+        </a>
+    </div>
+    
+    </div>
+    
+    <div id="dessertCards" class="cards-container" style="display: none;">
+        <div class="card dark">
+            <img src="美菊麵包店.png" alt="美菊麵包店">
+            <div class="card-content">
+                <h3 style="text-align: center;">美菊麵包店</h3>
+                <p style="text-align: center;">900屏東縣屏東市公園路66號</p>
+            </div>
+        </div>
+        <div class="card dark">  
+            <img src="千馨養生飲品（勝利東店）.png" alt="千馨養生飲品（勝利東店）">
+            <div class="card-content">
+                <h3 style="text-align: center;">千馨養生飲品（勝利東店）</h3>
+                <p style="text-align: center;">900屏東縣屏東市勝利東路83號</p>
+            </div>
+        </div>
+        <div class="card dark">  
+            <img src="秋林牛乳大王.png" alt="秋林牛乳大王">
+            <div class="card-content">
+                <h3 style="text-align: center;">秋林牛乳大王</h3>
+                <p style="text-align: center;">900屏東縣屏東市信義路28號</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="dessertCards1" class="cards-container" style="display: none;">
+        <div class="card dark">
+            <img src="千馨好吃餅.png" alt="千馨好吃餅">
+            <div class="card-content">
+                <h3 style="text-align: center;">千馨好吃餅</h3>
+                <p style="text-align: center;">900屏東縣屏東市廣東路87號</p>
+            </div>
+        </div>
+        <div class="card dark">  
+            <img src="吃香喝辣臭臭鍋.png" alt="吃香喝辣臭臭鍋">
+            <div class="card-content">
+                <h3 style="text-align: center;">吃香喝辣臭臭鍋</h3>
+                <p style="text-align: center;">900屏東縣屏東市大武路278號</p>
+            </div>
+        </div>
+        <div class="card dark">  
+            <img src="二魚pasta .png" alt="二魚pasta 林森店">
+            <div class="card-content">
+                <h3 style="text-align: center;">二魚pasta 林森店</h3>
+                <p style="text-align: center;">900屏東縣屏東市林森路30之16號</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+   <div id="dessertCards2" class="cards-container" style="display: none;">
+        <div class="card dark">
+            <img src="采青活水豆花.png" alt="采青活水豆花">
+            <div class="card-content">
+                <h3 style="text-align: center;">采青活水豆花</h3>
+                <p style="text-align: center;">No. 585-1, 壽比路內埔鄉屏東縣912</p>
+            </div>
+        </div>
+        <div class="card dark">  
+            <img src="吮糖豆花冰品專賣店（廣濟路.png" alt="吮糖豆花冰品專賣店（廣濟路">
+            <div class="card-content">
+                <h3 style="text-align: center;">吮糖豆花冰品專賣店（廣濟路</h3>
+                <p style="text-align: center;">912屏東縣內埔鄉廣濟路153號</p>
+            </div>
+        </div>
+        <div class="card dark">  
+            <img src="黎明剉冰.png" alt="黎明剉冰">
+            <div class="card-content">
+                <h3 style="text-align: center;">黎明剉冰</h3>
+                <p style="text-align: center;">912屏東縣內埔鄉黎東路247號</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+<div id="dessertCards3" class="cards-container" style="display: none;">
+        <div class="card dark">
+            <img src="老實麵懷舊麵館.png" alt="老實麵懷舊麵館(內埔)">
+            <div class="card-content">
+                <h3 style="text-align: center;">老實麵懷舊麵館(內埔)</h3>
+                <p style="text-align: center;">912屏東縣內埔鄉崇文巷66號</p>
+            </div>
+        </div>
+        <div class="card dark">  
+            <img src="歐喀醬 .png" alt="歐喀醬 咖哩/丼飯 美和店">
+            <div class="card-content">
+                <h3 style="text-align: center;">歐喀醬 咖哩/丼飯 美和店</h3>
+                <p style="text-align: center;">912屏東縣內埔鄉德美路380號</p>
+            </div>
+        </div>
+        <div class="card dark">  
+            <img src="阿鎮.png" alt="阿鎮上菜 便當專賣店">
+            <div class="card-content">
+                <h3 style="text-align: center;">阿鎮上菜 便當專賣店</h3>
+                <p style="text-align: center;">912屏東縣內埔鄉壽比路682-2號912</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<div id="section4" class="content-section">
+    <div class="text-center mt-5 mb-4">
+        <h3>📞 聯絡資訊</h3>
+        <p>如有問題或想推薦美食，歡迎透過以下方式聯繫我們：</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 bg-light p-4 rounded shadow-sm">
+        <p><strong>📧 電子郵件：</strong> eitty0000@gmail.com</p>
+        <p><strong>📱 聯絡電話：</strong> 0909-123-456</p>
+        <p><strong>📍 地址：</strong> 912屏東縣內埔鄉學府路1號</p>
+        </div>
+    </div>
+</div>
+
+    <script>
+        function showSection(id) {
+
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+
+            const activeSection = document.getElementById(id);
+            if (activeSection) {
+                activeSection.style.display = 'block';
+            }
+            document.getElementById("dessertCards").style.display = "none";
+            document.getElementById("dessertCards1").style.display = "none";
+            document.getElementById("dessertCards2").style.display = "none";
+            document.getElementById("dessertCards3").style.display = "none";
+        }
+    function showDessert() {
+        document.getElementById("dessertCards").style.display = "flex";
+        document.getElementById("dessertCards1").style.display = "none";
+    }
+
+    function showDessert1() {
+        document.getElementById("dessertCards").style.display = "none";
+        document.getElementById("dessertCards1").style.display = "flex";
+    }
+    function showDessert2() {
+        document.getElementById("dessertCards3").style.display = "none";
+        document.getElementById("dessertCards2").style.display = "flex";
+    }
+    function showDessert3() {
+        document.getElementById("dessertCards2").style.display = "none";
+        document.getElementById("dessertCards3").style.display = "flex";
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
